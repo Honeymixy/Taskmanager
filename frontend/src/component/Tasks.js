@@ -33,7 +33,7 @@ const Tasks = ({ getData, tasks, deleteData, refreshPage }) => {
                 ) : task.tags === 2 ? (
                   <p style={{ color: "#73C3A6", margin: "0" }}>Important</p>
                 ) : (
-                  <p style={{ color: "#8A8888", margin: "0" }}>Minor</p>
+                  <p style={{ color: "#0eace6", margin: "0" }}>Minor</p>
                 )}
               </div>
               <div>

@@ -4,8 +4,9 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import HomePage from './pages/HomePage';
 import Navbarr from "./component/Navbarr";
 import Tasks from './component/Tasks';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CreateTask from './component/CreateTask';
+import EditTask from './component/EditTask';
 
 
 function App() {
@@ -29,13 +30,17 @@ function App() {
 
   const editTask = (e, updatedTask, id) => {
     e.preventDefault();
-    fetch(`http://127.0.0.1:8000/api/update/${id}/`, {
+    fetch(`http://127.0.0.1:8000/api/tasks/update/${id}/`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(updatedTask),
-    });
+    }).then (res=> {
+      if (res.ok){
+        return 'success'
+      }
+    })
   };
   
   const createTask = (e, newTask) => {
@@ -63,6 +68,7 @@ function App() {
                 refreshPage={refreshPage}
                 getData={getData} />} />
                 <Route path='/create' element={<CreateTask createTask={createTask} />} />
+                <Route path='/edit/:id' element={<EditTask editTask={editTask} />} />
     </Routes>
     </BrowserRouter>
    </div>

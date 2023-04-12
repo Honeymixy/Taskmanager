@@ -131,17 +131,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # add cors allowed for django
-CORS_ALLOWED_ORIGIN = [
+CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
     'http://localhost:3000',
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
 ]
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
